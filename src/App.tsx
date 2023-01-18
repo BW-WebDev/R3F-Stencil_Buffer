@@ -14,8 +14,12 @@ import { Environment, OrbitControls } from '@react-three/drei'
 
 const portraitMode = window.matchMedia('(orientation: portrait)').matches
 
-const modelOptions = (Key) => {
-  const mainObj = {
+interface mainObjInterface {
+  [name: string]: number
+}
+
+const modelOptions = (Key: string) => {
+  const mainObj: mainObjInterface = {
     Standing: 1,
     Ducking: 2,
     PointingGun: 3,
@@ -101,7 +105,7 @@ export default function App() {
         dpr={[1, 2]}
       >
         <OrbitControls />
-        <Lights /> 
+        <Lights />
         <Suspense fallback={null}>
           <Frame />
           {/* Front */}
@@ -150,7 +154,7 @@ export default function App() {
           >
             <Ladies stencilRef={6} {...bottom} />
           </PlaneMask>
-          <Environment preset={"city"}/>
+          <Environment preset={'city'} />
         </Suspense>
       </Canvas>
     </>
