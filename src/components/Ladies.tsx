@@ -23,14 +23,20 @@ type GLTFResult = GLTF & {
   }
 }
 
+type ModelType = {
+  stencilRef: number
+  color: string
+  floor: boolean
+  model: number
+}
+
 export default function Model({
   stencilRef,
   color,
-  different,
   floor,
   model,
   ...props
-}: Props) {
+}: ModelType) {
   const group = useRef<THREE.Group>()
   const { nodes } = useGLTF('/Ladies.glb') as GLTFResult
 
